@@ -9,7 +9,7 @@ MYSQL_PASS="toor"
 USER="debian"
 
 # backuped directories: /etc /var/www/html
-BACKUP_DIRS="/etc /var/www/html"
+BACKUP_DIRS="/etc"
 
 # Variables, don't touch
 COPY_TO_DIR="/home/${USER}/backup"
@@ -84,14 +84,15 @@ sudo mkdir -p "/etc/cron-scripts"
 # Copy script executed script
 cp $(readlink -f $0) /etc/cron-scripts/awesome-backup.sh
 
+# Allow run cron
+chmod +x /etc/cron-scripts/awesome-backup.sh
+
 if [ ! -f /etc/cron.d/awesome-backup-cron.sh ]; then
 # Add script
 echo "SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-0 23 * * * /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
+0 23 * * * root /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
 " > /etc/cron.d/awesome-backup-cron.sh
-# Allow run cron
-chmod +x /etc/cron-scripts/awesome-backup.sh
 fi
 
 # Test cron job
