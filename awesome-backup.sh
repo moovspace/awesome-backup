@@ -88,7 +88,7 @@ if [ ! -f /etc/cron.d/awesome-backup-cron.sh ]; then
 # Add script
 echo "SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-0 23 * * * /etc/cron-scripts/awesome-backup.sh
+0 23 * * * /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
 " > /etc/cron.d/awesome-backup-cron.sh
 # Allow run cron
 chmod +x /etc/cron-scripts/awesome-backup.sh
