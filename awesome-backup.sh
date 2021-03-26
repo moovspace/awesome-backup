@@ -84,14 +84,15 @@ sudo mkdir -p "/etc/cron-scripts"
 # Copy script executed script
 cp $(readlink -f $0) /etc/cron-scripts/awesome-backup.sh
 
+if [ ! -f /etc/cron.d/awesome-backup-cron.sh ]; then
 # Add script
 echo "SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 0 23 * * * /etc/cron-scripts/awesome-backup.sh
 " > /etc/cron.d/awesome-backup-cron.sh
-
 # Allow run cron
-chmod +x /etc/cron.d/awesome-backup-cron.sh
+chmod +x /etc/cron-scripts/awesome-backup.sh
+fi
 
 # Test cron job
 if [ -f /etc/cron.d/awesome-backup-cron.sh ]; then
