@@ -9,7 +9,7 @@ MYSQL_PASS="toor"
 USER="debian"
 
 # backuped directories: /etc /var/www/html
-BACKUP_DIRS="/etc"
+BACKUP_DIRS="/etc /var/www/html"
 
 # Variables, don't touch
 COPY_TO_DIR="/home/${USER}/backup"
