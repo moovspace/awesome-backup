@@ -87,18 +87,19 @@ cp $(readlink -f $0) /etc/cron-scripts/awesome-backup.sh
 # Allow run cron
 chmod +x /etc/cron-scripts/awesome-backup.sh
 
-if [ ! -f /etc/cron.d/awesome-backup-cron.sh ]; then
+if [ ! -f /etc/cron.d/awesome-backup-cron ]; then
 # Add script
 echo "SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-0 23 * * * root /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
-" > /etc/cron.d/awesome-backup-cron.sh
+
+0 23 * * * root bash /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
+" > /etc/cron.d/awesome-backup-cron
 fi
 
 # Test cron job
-if [ -f /etc/cron.d/awesome-backup-cron.sh ]; then
+if [ -f /etc/cron.d/awesome-backup-cron ]; then
     echo ""
-    echo "!!! Backup once a day at 23:00 cron job added to: /etc/cron.d/awesome-backup-cron.sh"
+    echo "!!! Backup once a day at 23:00 cron job added to: /etc/cron.d/awesome-backup-cron"
     echo ""
 else
     echo "!!! Cron job not added"
