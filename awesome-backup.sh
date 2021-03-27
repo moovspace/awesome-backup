@@ -89,7 +89,7 @@ chmod +x /etc/cron-scripts/awesome-backup.sh
 
 if [ ! -f /etc/cron.d/awesome-backup-cron ]; then
 # Add script
-echo "SHELL=/bin/sh
+echo "SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 0 23 * * * root bash /etc/cron-scripts/awesome-backup.sh >/dev/null 2>&1
