@@ -11,10 +11,10 @@ sudo bash awesome-script.sh
 ```
 
 ### The cron job will be located in 
-/etc/cron.d/awesome-backup-cron.sh
+/etc/cron.d/awesome-backup-cron
 ```
 # cron job
-/etc/cron.d/awesome-backup-cron.sh
+/etc/cron.d/awesome-backup-cron
 
 # cron job runing script from
 /etc/cron-scripts/awesome-backup.sh
