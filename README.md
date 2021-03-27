@@ -19,3 +19,10 @@ sudo bash awesome-script.sh
 # cron job runing script from
 /etc/cron-scripts/awesome-backup.sh
 ```
+
+### Directory owner and permissions
+Force owner and permission on directory
+```bash
+chown -R username:username /home/username/backup
+chmod -R 2770 /home/username/backup
+```
